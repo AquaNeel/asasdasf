@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+        <script src="./movement.js"></script>
+        <script src="./timer.js"></script>
+    </head>
+    <body>
+      <a-scene background="color:#026F90">
+        <a-entity id="look" look-control camera position="0 2 20"></a-entity>
+        <a-assets>
+          <a-asset-item
+          id="terrainMap"
+          src="./assets/city.glb"
+          >
+          
+          <a-asset-item id="terrain-obj"  src="./assets/Sizzling Curcan-Inari/obj.mtl"></a-asset-item>
+          <a-asset-item id="terrain-obj"  src="./assets/Sizzling Curcan-Inari/obj.mtl"></a-asset-item>
+          
+          <a-asset-item id="car-obj" src="./assets/Copy of lamborghini race car/obj.mtl"></a-asset-item>
+          <a-asset-item id="car-obj" src="./assets/Copy of lamborghini race car/tinker.obj"></a-asset-item>
+
+          <a-asset-item id="terrainMap" src="./assets/city.glb"></a-asset-item>
+        
+          
+        </a-asset-item>
+            <a-asset-item
+            id="sports_car"
+            src="./assets/sportsCar.glb"
+            src="./assets/Copy of lamborghini race car/obj.mtl"
+            >
+            <a-asset-item id="car-obj" src="./assets/Copy of lamborghini race car/obj.mtl"></a-asset-item>
+            </a-asset-item>
+            <a-entity 
+            id="terrain"
+            gltf-model="#terrainMap"
+            position="0 0 -100"
+            scale="0.3 0.3 0.3"
+            animation="property:position;to: 0 0 1000;easing:linear;loop:true;dur:150000"
+            map-rotation>
+          </a-entity>
+          <a-entity
+          id="sports_car"
+          gltf-model="#sports_car"
+          position="0 0 15"
+          scale="1 1 1"
+          rotation="0 90 0"
+          car-movement
+          dynamic-body="mass:0"
+          game-play>
+        </a-entity>
+         
+        
+        <a-entity id="header" position="1 -4 0">
+          <a-entity 
+          position="-28.5 21.5 0"
+          text="font:exo2bold;align:center;width:40;color:black;value:Virtual Car Simulator">
+        </a-entity>
+        <a-entity position="-23.5 19.3 9">
+          <a-entity position="-1.5 0.07 0"
+          text="font:aileronsemibold;width:12;color:black;value:Time\n Remaining">
+        </a-entity>
+        <a-entity 
+        id="timer"
+        position="-9.8 0.3 0"
+        text="font:exo2bold;align:center;width:30;color:black;value:00:00">
+      </a-entity>
+        </a-entity>
+        </a-entity>
+      </a-scene>
+    </body>
+</html>
